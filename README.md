@@ -57,6 +57,18 @@ The checked-in parts list includes the transformer, bridge rectifier, adjustable
 - Evaluate dropout margin, output ripple, load regulation, and regulator power dissipation across the intended operating range.
 - Add waveform plots, an annotated schematic, assembly photos, and measured results as the project progresses.
 
+## Design calculation tool
+
+The [Python power-supply estimator](tools/power_supply_estimator.py) calculates first-order reservoir ripple, regulator headroom, dissipation, and junction temperature from explicit assumptions. See the [equations, example, and model limitations](docs/design-calculations.md).
+
+This tool was added to support ongoing design analysis. Its outputs are estimates, not measured results or verified hardware ratings.
+
+```powershell
+python tools/power_supply_estimator.py --secondary-rms 12 --output 9 --current 0.1
+```
+
+The command above is an illustrative calculation, not the project's specifications.
+
 ## Engineering focus
 
 This project brings together **analog circuit modeling, AC-to-DC conversion, linear regulation, component selection, and cost documentation**. The files provide a starting point for tracing the design decisions and subsequent validation.
